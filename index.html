@@ -3,27 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#c1121f">
+<meta name="theme-color" content="#0F2D56">
 <meta name="description" content="Viviane Lima — estudante de Desenvolvimento de Sistemas, Teresina (PI). Projetos em web, mobile, automação e IoT.">
 <title>Viviane Lima — Portfólio 2026</title>
 <style>
 :root{
-  --red:#c1121f;
-  --red-bright:#e23636;
-  --red-dark:#780000;
-  --bg:#0b0507;
-  --bg2:#160a0e;
-  --panel:#1a0c11;
-  --line:#3d1620;
-  --text:#f6efe8;
-  --muted:#c9b3ad;
-  --ink:#1a0a0d;
+  --sand:#E8DCC9;
+  --navy:#0F2D56;
+  --tangerine:#F05A28;
+  --red:var(--tangerine);
+  --red-bright:var(--tangerine);
+  --red-dark:var(--navy);
+  --bg:var(--navy);
+  --bg2:color-mix(in srgb,var(--navy) 88%,var(--sand));
+  --panel:color-mix(in srgb,var(--navy) 82%,var(--sand));
+  --line:color-mix(in srgb,var(--navy) 62%,var(--sand));
+  --text:var(--sand);
+  --muted:color-mix(in srgb,var(--sand) 78%,var(--navy));
+  --ink:var(--navy);
   --t:"Times New Roman",Times,serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font:16px/1.7 var(--t);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-::selection{background:var(--red-bright);color:#fff}
+::selection{background:var(--tangerine);color:var(--navy)}
 a{color:inherit;text-decoration:none}
 img{display:block}
 .wrap{width:min(1120px,calc(100% - 48px));margin:auto}
@@ -31,40 +34,40 @@ img{display:block}
 
 /* halftone texture on dark sections */
 main::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
-  background-image:radial-gradient(#e2363608 1px,transparent 1.4px);background-size:22px 22px}
+  background-image:radial-gradient(color-mix(in srgb,var(--sand) 8%,transparent) 1px,transparent 1.4px);background-size:22px 22px}
 main{position:relative;z-index:1}
 
 /* ---------- CAPA (intro) ---------- */
-.cover{position:relative;min-height:100vh;background:linear-gradient(160deg,#d21f2c 0%,var(--red) 45%,#8f0d18 100%);
+.cover{position:relative;min-height:100vh;background:linear-gradient(150deg,var(--sand) 0%,var(--sand) 62%,var(--tangerine) 155%);
   color:var(--ink);display:flex;flex-direction:column;overflow:hidden}
 .cover::before{content:"";position:absolute;inset:0;pointer-events:none;
-  background-image:radial-gradient(#00000014 1px,transparent 1.4px);background-size:20px 20px}
+  background-image:radial-gradient(color-mix(in srgb,var(--navy) 12%,transparent) 1px,transparent 1.4px);background-size:20px 20px}
 .cover-nav{position:relative;z-index:5;display:flex;align-items:center;justify-content:flex-end;
   padding:22px min(5vw,56px)}
-.cover-brand{font-weight:700;font-size:1.1rem;letter-spacing:.24em;text-transform:uppercase;color:#fff}
-.cover-links{display:flex;gap:32px;font-size:.95rem;letter-spacing:.02em;color:#ffe8e8}
-.cover-links a:hover{color:#fff}
-.cover-badge{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;border:1.5px solid #ffffff88;padding:6px 14px;border-radius:99px;display:inline-flex;align-items:center;gap:8px}
-.cover-badge i{width:7px;height:7px;border-radius:50%;background:#fff;animation:pulse 1.8s infinite}
+.cover-brand{font-weight:700;font-size:1.1rem;letter-spacing:.24em;text-transform:uppercase;color:var(--navy)}
+.cover-links{display:flex;gap:32px;font-size:.95rem;letter-spacing:.02em;color:var(--navy)}
+.cover-links a:hover{color:var(--tangerine)}
+.cover-badge{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);border:1.5px solid color-mix(in srgb,var(--navy) 55%,transparent);padding:6px 14px;border-radius:99px;display:inline-flex;align-items:center;gap:8px}
+.cover-badge i{width:7px;height:7px;border-radius:50%;background:var(--tangerine);animation:pulse 1.8s infinite}
 @keyframes pulse{50%{opacity:.25}}
 
 .cover-body{position:relative;flex:1;display:flex;align-items:center;padding:0 min(5vw,56px)}
 .cover-title{position:relative;z-index:3}
 .cover-title{margin-left:clamp(48px,7vw,92px)}
-.cover-title .hello{font-size:clamp(1.6rem,3.6vw,2.6rem);font-style:italic;color:#ffe3e3;font-weight:400}
+.cover-title .hello{font-size:clamp(1.6rem,3.6vw,2.6rem);font-style:italic;color:var(--tangerine);font-weight:400}
 .cover-name{font-size:clamp(4rem,13vw,10.5rem);line-height:.9;font-weight:700;text-transform:uppercase;letter-spacing:-.015em;color:var(--ink)}
-.cover-name .outline{color:transparent;-webkit-text-stroke:3px #fff}
-.cover-role{margin-top:22px;font-size:clamp(1rem,2vw,1.45rem);font-weight:700;letter-spacing:.1em;color:#fff;text-transform:uppercase}
+.cover-name .outline{color:transparent;-webkit-text-stroke:3px var(--tangerine)}
+.cover-role{margin-top:22px;font-size:clamp(1rem,2vw,1.45rem);font-weight:700;letter-spacing:.1em;color:var(--navy);text-transform:uppercase}
 .cover-photo{position:absolute;right:min(3vw,40px);bottom:0;height:88vh;z-index:2;
-  filter:drop-shadow(0 0 60px #00000066)}
+  filter:drop-shadow(0 0 60px color-mix(in srgb,var(--navy) 45%,transparent))}
 .cover-photo img{height:100%;width:auto}
 .cover-socials{position:absolute;z-index:6;left:min(3vw,34px);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:14px}
-.cover-socials a{width:38px;height:38px;display:grid;place-items:center;color:#fff;transition:.2s}
-.cover-socials a:hover,.cover-socials a:focus-visible{color:var(--ink);transform:translateX(4px) scale(1.08);outline:none}
+.cover-socials a{width:38px;height:38px;display:grid;place-items:center;color:var(--navy);transition:.2s}
+.cover-socials a:hover,.cover-socials a:focus-visible{color:var(--tangerine);transform:translateX(4px) scale(1.08);outline:none}
 .cover-socials svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.cover-stats{position:relative;z-index:4;display:flex;border-top:2px solid #00000033;padding:18px min(5vw,56px);gap:clamp(20px,6vw,80px)}
-.cover-stats div b{display:block;font-size:clamp(1.2rem,2.4vw,1.8rem);font-weight:700;color:#fff}
-.cover-stats div span{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:#ffd0d0}
+.cover-stats{position:relative;z-index:4;display:flex;border-top:2px solid color-mix(in srgb,var(--navy) 28%,transparent);padding:18px min(5vw,56px);gap:clamp(20px,6vw,80px)}
+.cover-stats div b{display:block;font-size:clamp(1.2rem,2.4vw,1.8rem);font-weight:700;color:var(--navy)}
+.cover-stats div span{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:color-mix(in srgb,var(--navy) 76%,var(--sand))}
 
 /* ---------- sections (dark) ---------- */
 section{padding:96px 0;border-bottom:1px solid var(--line)}
@@ -83,17 +86,17 @@ section{padding:96px 0;border-bottom:1px solid var(--line)}
 .about-photo{position:relative;justify-self:center}
 .about-photo .blob{position:absolute;inset:8% -4% -2% -4%;background:radial-gradient(circle,var(--red) 0%,var(--red-dark) 78%);
   border-radius:50%;z-index:0;filter:saturate(.9)}
-.about-photo img{position:relative;z-index:1;height:480px;width:auto;filter:drop-shadow(0 20px 50px #000000aa)}
-.about-photo .tag-photo{position:absolute;z-index:2;left:-14px;bottom:36px;background:var(--red-bright);color:#fff;
+.about-photo img{position:relative;z-index:1;height:480px;width:auto;filter:drop-shadow(0 20px 50px color-mix(in srgb,var(--navy) 78%,transparent))}
+.about-photo .tag-photo{position:absolute;z-index:2;left:-14px;bottom:36px;background:var(--red-bright);color:var(--navy);
   font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;padding:7px 14px}
 
 /* ---------- projetos ---------- */
 .project{display:grid;grid-template-columns:80px 1fr auto;gap:26px;padding:40px 0;border-top:1px solid var(--line);transition:.25s}
 .project:last-child{border-bottom:1px solid var(--line)}
-.project:hover{background:#e2363612;padding-left:14px}
+.project:hover{background:color-mix(in srgb,var(--tangerine) 10%,transparent);padding-left:14px}
 .p-num{font-size:2rem;font-weight:700;color:transparent;-webkit-text-stroke:1.5px var(--red-bright);line-height:1;padding-top:4px}
 .p-body h3{font-size:1.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;display:inline-block}
-.p-status{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red-bright);border:1px solid #e2363655;padding:4px 12px;margin-left:14px;vertical-align:middle;white-space:nowrap}
+.p-status{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red-bright);border:1px solid color-mix(in srgb,var(--tangerine) 45%,transparent);padding:4px 12px;margin-left:14px;vertical-align:middle;white-space:nowrap}
 .p-desc{color:var(--muted);font-size:.96rem;max-width:62ch;margin:12px 0}
 .p-detail{font-size:.87rem;color:var(--muted);border-left:3px solid var(--red-bright);padding-left:16px;margin-bottom:16px;max-width:62ch}
 .p-detail b{color:var(--text)}
@@ -123,16 +126,16 @@ section{padding:96px 0;border-bottom:1px solid var(--line)}
 
 /* ---------- contato ---------- */
 .contact{padding:110px 0 90px;text-align:center;border-bottom:none;position:relative;overflow:hidden}
-.contact::before{content:"";position:absolute;left:50%;top:-220px;transform:translateX(-50%);width:700px;height:440px;background:radial-gradient(ellipse,#e2363630 0%,transparent 65%);pointer-events:none}
+.contact::before{content:"";position:absolute;left:50%;top:-220px;transform:translateX(-50%);width:700px;height:440px;background:radial-gradient(ellipse,color-mix(in srgb,var(--tangerine) 22%,transparent) 0%,transparent 65%);pointer-events:none}
 .contact h2{font-size:clamp(2.4rem,6.5vw,4.6rem);font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:.01em;margin:18px auto 20px;max-width:18ch}
 .contact h2 span{color:var(--red-bright)}
 .contact p{color:var(--muted);max-width:52ch;margin:0 auto 38px}
 .contact-links{display:flex;justify-content:center;flex-wrap:wrap;gap:14px}
 .btn{display:inline-block;padding:15px 30px;font-weight:700;font-size:.85rem;letter-spacing:.16em;text-transform:uppercase;border:2px solid var(--red-bright);transition:.2s}
-.btn.solid{background:var(--red-bright);color:#fff}
+.btn.solid{background:var(--red-bright);color:var(--navy)}
 .btn.solid:hover{background:transparent;color:var(--red-bright)}
 .btn.ghost{color:var(--red-bright)}
-.btn.ghost:hover{background:var(--red-bright);color:#fff}
+.btn.ghost:hover{background:var(--red-bright);color:var(--navy)}
 .mail{margin-top:30px;font-size:.85rem;letter-spacing:.14em;color:var(--muted)}
 .mail b{color:var(--red-bright)}
 
@@ -174,7 +177,7 @@ footer b{color:var(--red-bright)}
 
   <div class="cover-body">
     <aside class="cover-socials" aria-label="Redes sociais">
-      <a href="https://www.instagram.com/kristhynev?xtok=MW5vanFzMnBua2YxZw==" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
         <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg>
       </a>
       <a href="https://www.linkedin.com/in/viviane-lima-49445a373/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
