@@ -1,0 +1,10 @@
+{
+  "description": "A personal portfolio introduces a developer and designer, with quick links to Instagram, LinkedIn, and email for easy connection.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

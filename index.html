@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#c1121f">
+<meta name="description" content="Viviane Lima — estudante de Desenvolvimento de Sistemas, Teresina (PI). Projetos em web, mobile, automação e IoT.">
+<title>Viviane Lima — Portfólio 2026</title>
+<style>
+:root{
+  --red:#c1121f;
+  --red-bright:#e23636;
+  --red-dark:#780000;
+  --bg:#0b0507;
+  --bg2:#160a0e;
+  --panel:#1a0c11;
+  --line:#3d1620;
+  --text:#f6efe8;
+  --muted:#c9b3ad;
+  --ink:#1a0a0d;
+  --t:"Times New Roman",Times,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:16px/1.7 var(--t);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--red-bright);color:#fff}
+a{color:inherit;text-decoration:none}
+img{display:block}
+.wrap{width:min(1120px,calc(100% - 48px));margin:auto}
+.kicker{color:var(--red-bright);font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;font-weight:700}
+
+/* halftone texture on dark sections */
+main::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(#e2363608 1px,transparent 1.4px);background-size:22px 22px}
+main{position:relative;z-index:1}
+
+/* ---------- CAPA (intro) ---------- */
+.cover{position:relative;min-height:100vh;background:linear-gradient(160deg,#d21f2c 0%,var(--red) 45%,#8f0d18 100%);
+  color:var(--ink);display:flex;flex-direction:column;overflow:hidden}
+.cover::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(#00000014 1px,transparent 1.4px);background-size:20px 20px}
+.cover-nav{position:relative;z-index:5;display:flex;align-items:center;justify-content:flex-end;
+  padding:22px min(5vw,56px)}
+.cover-brand{font-weight:700;font-size:1.1rem;letter-spacing:.24em;text-transform:uppercase;color:#fff}
+.cover-links{display:flex;gap:32px;font-size:.95rem;letter-spacing:.02em;color:#ffe8e8}
+.cover-links a:hover{color:#fff}
+.cover-badge{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;border:1.5px solid #ffffff88;padding:6px 14px;border-radius:99px;display:inline-flex;align-items:center;gap:8px}
+.cover-badge i{width:7px;height:7px;border-radius:50%;background:#fff;animation:pulse 1.8s infinite}
+@keyframes pulse{50%{opacity:.25}}
+
+.cover-body{position:relative;flex:1;display:flex;align-items:center;padding:0 min(5vw,56px)}
+.cover-title{position:relative;z-index:3}
+.cover-title{margin-left:clamp(48px,7vw,92px)}
+.cover-title .hello{font-size:clamp(1.6rem,3.6vw,2.6rem);font-style:italic;color:#ffe3e3;font-weight:400}
+.cover-name{font-size:clamp(4rem,13vw,10.5rem);line-height:.9;font-weight:700;text-transform:uppercase;letter-spacing:-.015em;color:var(--ink)}
+.cover-name .outline{color:transparent;-webkit-text-stroke:3px #fff}
+.cover-role{margin-top:22px;font-size:clamp(1rem,2vw,1.45rem);font-weight:700;letter-spacing:.1em;color:#fff;text-transform:uppercase}
+.cover-photo{position:absolute;right:min(3vw,40px);bottom:0;height:88vh;z-index:2;
+  filter:drop-shadow(0 0 60px #00000066)}
+.cover-photo img{height:100%;width:auto}
+.cover-socials{position:absolute;z-index:6;left:min(3vw,34px);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:14px}
+.cover-socials a{width:38px;height:38px;display:grid;place-items:center;color:#fff;transition:.2s}
+.cover-socials a:hover,.cover-socials a:focus-visible{color:var(--ink);transform:translateX(4px) scale(1.08);outline:none}
+.cover-socials svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.cover-stats{position:relative;z-index:4;display:flex;border-top:2px solid #00000033;padding:18px min(5vw,56px);gap:clamp(20px,6vw,80px)}
+.cover-stats div b{display:block;font-size:clamp(1.2rem,2.4vw,1.8rem);font-weight:700;color:#fff}
+.cover-stats div span{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:#ffd0d0}
+
+/* ---------- sections (dark) ---------- */
+section{padding:96px 0;border-bottom:1px solid var(--line)}
+.sec-head{display:flex;align-items:baseline;gap:22px;margin-bottom:52px}
+.sec-num{font-size:clamp(3rem,7vw,5rem);font-weight:700;color:transparent;-webkit-text-stroke:1.5px var(--red-bright);line-height:1}
+.sec-head h2{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.sec-note{margin-left:auto;color:var(--muted);font-style:italic;font-size:.92rem}
+
+/* ---------- sobre ---------- */
+.about{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.about p{color:var(--muted);margin-bottom:18px}
+.about p strong{color:var(--text)}
+.facts{margin-top:8px;border-top:2px solid var(--red-bright);padding-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:16px 28px}
+.facts dt{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--red-bright);font-weight:700}
+.facts dd{color:var(--muted);font-size:.92rem;margin-top:2px}
+.about-photo{position:relative;justify-self:center}
+.about-photo .blob{position:absolute;inset:8% -4% -2% -4%;background:radial-gradient(circle,var(--red) 0%,var(--red-dark) 78%);
+  border-radius:50%;z-index:0;filter:saturate(.9)}
+.about-photo img{position:relative;z-index:1;height:480px;width:auto;filter:drop-shadow(0 20px 50px #000000aa)}
+.about-photo .tag-photo{position:absolute;z-index:2;left:-14px;bottom:36px;background:var(--red-bright);color:#fff;
+  font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;padding:7px 14px}
+
+/* ---------- projetos ---------- */
+.project{display:grid;grid-template-columns:80px 1fr auto;gap:26px;padding:40px 0;border-top:1px solid var(--line);transition:.25s}
+.project:last-child{border-bottom:1px solid var(--line)}
+.project:hover{background:#e2363612;padding-left:14px}
+.p-num{font-size:2rem;font-weight:700;color:transparent;-webkit-text-stroke:1.5px var(--red-bright);line-height:1;padding-top:4px}
+.p-body h3{font-size:1.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;display:inline-block}
+.p-status{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red-bright);border:1px solid #e2363655;padding:4px 12px;margin-left:14px;vertical-align:middle;white-space:nowrap}
+.p-desc{color:var(--muted);font-size:.96rem;max-width:62ch;margin:12px 0}
+.p-detail{font-size:.87rem;color:var(--muted);border-left:3px solid var(--red-bright);padding-left:16px;margin-bottom:16px;max-width:62ch}
+.p-detail b{color:var(--text)}
+.tags{display:flex;flex-wrap:wrap;gap:7px}
+.tag{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text);background:var(--bg2);border:1px solid var(--line);padding:4px 11px}
+.p-year{color:var(--red-bright);font-size:.85rem;letter-spacing:.1em;padding-top:10px}
+
+/* ---------- habilidades ---------- */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.skills-grid h3{font-size:.78rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--red-bright);padding-bottom:12px;border-bottom:2px solid var(--red-bright);margin-bottom:14px}
+.skills-grid li{list-style:none;color:var(--muted);font-size:.94rem;padding:8px 0;border-bottom:1px dashed var(--line)}
+.skills-grid li b{color:var(--text);font-weight:700}
+.now{margin-top:56px;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--red-bright);padding:26px 30px;display:flex;gap:18px;align-items:flex-start}
+.now .dot{width:10px;height:10px;border-radius:50%;background:var(--red-bright);margin-top:9px;flex-shrink:0;animation:pulse 1.8s infinite}
+.now p{font-size:.95rem;color:var(--muted)}
+.now p b{color:var(--text)}
+
+/* ---------- trajetória ---------- */
+.tl{max-width:760px}
+.tl-item{position:relative;padding:0 0 40px 34px;border-left:2px solid var(--line)}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:"";position:absolute;left:-8px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--red-bright)}
+.tl-item time{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--red-bright);font-weight:700}
+.tl-item h3{font-size:1.35rem;font-weight:700;margin:8px 0 2px}
+.tl-item .org{font-size:.86rem;color:var(--muted)}
+.tl-item p{color:var(--muted);font-size:.93rem;margin-top:10px;max-width:60ch}
+
+/* ---------- contato ---------- */
+.contact{padding:110px 0 90px;text-align:center;border-bottom:none;position:relative;overflow:hidden}
+.contact::before{content:"";position:absolute;left:50%;top:-220px;transform:translateX(-50%);width:700px;height:440px;background:radial-gradient(ellipse,#e2363630 0%,transparent 65%);pointer-events:none}
+.contact h2{font-size:clamp(2.4rem,6.5vw,4.6rem);font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:.01em;margin:18px auto 20px;max-width:18ch}
+.contact h2 span{color:var(--red-bright)}
+.contact p{color:var(--muted);max-width:52ch;margin:0 auto 38px}
+.contact-links{display:flex;justify-content:center;flex-wrap:wrap;gap:14px}
+.btn{display:inline-block;padding:15px 30px;font-weight:700;font-size:.85rem;letter-spacing:.16em;text-transform:uppercase;border:2px solid var(--red-bright);transition:.2s}
+.btn.solid{background:var(--red-bright);color:#fff}
+.btn.solid:hover{background:transparent;color:var(--red-bright)}
+.btn.ghost{color:var(--red-bright)}
+.btn.ghost:hover{background:var(--red-bright);color:#fff}
+.mail{margin-top:30px;font-size:.85rem;letter-spacing:.14em;color:var(--muted)}
+.mail b{color:var(--red-bright)}
+
+footer{padding:30px 0 44px;text-align:center;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+footer b{color:var(--red-bright)}
+
+@media(max-width:860px){
+  .cover-links{display:none}
+  .cover-photo{position:relative;right:auto;height:52vh;margin:16px auto -8px}
+  .cover-body{flex-direction:column;justify-content:center;text-align:center;padding-top:36px}
+  .cover-title{margin-left:0}
+  .cover-socials{position:relative;left:auto;top:auto;transform:none;flex-direction:row;justify-content:center;margin-top:24px}
+  .cover-socials a:hover,.cover-socials a:focus-visible{transform:translateY(-3px)}
+  .cover-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px 20px;text-align:center}
+  .cover-stats div:nth-child(5){grid-column:2 / 4}
+  .about{grid-template-columns:1fr}
+  .about-photo img{height:400px}
+  .project{grid-template-columns:1fr;gap:8px}
+  .p-year{display:none}
+  .skills-grid{grid-template-columns:1fr;gap:30px}
+  .sec-note{display:none}
+  section{padding:70px 0}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ CAPA DE INTRODUÇÃO ============ -->
+<div class="cover">
+  <div class="cover-nav">
+    <a class="cover-brand" href="#topo"></a>
+    <nav class="cover-links" aria-label="Navegação principal">
+      <a href="#sobre">Sobre</a>
+      <a href="#trajetoria">Perfil</a>
+      <a href="#contato">Contato</a>
+      <a href="#projetos">Meus projetos</a>
+    </nav>
+  </div>
+
+  <div class="cover-body">
+    <aside class="cover-socials" aria-label="Redes sociais">
+      <a href="https://www.instagram.com/kristhynev?xtok=MW5vanFzMnBua2YxZw==" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/viviane-lima-49445a373/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V9h4v2"></path><path d="M2 9h4v12H2z"></path><path d="M4 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path></svg>
+      </a>
+      <a href="mailto:kristhyneviviane@gmail.com" aria-label="E-mail" title="E-mail">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m3 6 9 7 9-7"></path></svg>
+      </a>
+    </aside>
+    <div class="cover-title">
+      <div class="hello">I am</div>
+      <h1 class="cover-name">Viviane<br><span class="outline">Lima</span></h1>
+      <div class="cover-role">Developer</div>
+    </div>
+    <div class="cover-photo"><img src="/images/viviane-cover.png" alt="Viviane Lima"></div>
+  </div>
+
+  <div class="cover-stats">
+    <div><b>Web</b><span>desenvolvimento</span></div>
+    <div><b>Mobile</b><span>aplicações</span></div>
+    <div><b>Automação</b><span>& IoT</span></div>
+    <div><b>UI/UX</b><span>experiência</span></div>
+    <div><b>2026</b><span>conclusão do técnico</span></div>
+  </div>
+</div>
+
+<main id="topo">
+
+  <!-- SOBRE -->
+  <section id="sobre">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-num">01</span><h2>Sobre mim</h2><span class="sec-note">— quem faz o código</span></div>
+      <div class="about">
+        <div>
+          <p>Comecei na programação por curiosidade e fiquei pela possibilidade de <strong>criar soluções para problemas reais</strong>  dos mais simples aos que pareciam impossíveis. Hoje curso o Ensino Médio Técnico em Desenvolvimento de Sistemas, e cada projeto novo é uma desculpa para aprender algo a fundo.</p>
+          <p>Me interesso especialmente por <strong>desenvolvimento web e mobile</strong>, por <strong>UI/UX</strong> , acredito que uma boa interface é metade da solução, e por <strong>automação e IoT</strong>, onde o software sai da tela e age no mundo físico.</p>
+          <p>Também fui <strong>monitora de programação pela Seduc-PI</strong>, ajudando outros estudantes em exercícios e atividades práticas. Ensinar, descobri, é um dos melhores jeitos de aprender.</p>
+          <dl class="facts">
+            <div><dt>Base</dt><dd>Teresina, Piauí</dd></div>
+            <div><dt>Formação</dt><dd>Técnico em Desenvolvimento de Sistemas, CETI Prof. Raldir Cavalcante Bastos</dd></div>
+            <div><dt>Foco atual</dt><dd>Web, mobile, automação, IoT e UI/UX</dd></div>
+            <div><dt>Fora do código</dt><dd>Projetos com propósito social — como o Âncora</dd></div>
+          </dl>
+        </div>
+        <div class="about-photo">
+          <div class="blob"></div>
+          <img src="/images/viviane-about.png" alt="Viviane sorrindo com bandana roxa">
+          <span class="tag-photo">fora do código</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETOS -->
+  <section id="projetos">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-num">02</span><h2>Projetos</h2><span class="sec-note">— ideias em construção</span></div>
+
+      <article class="project">
+        <span class="p-num">01</span>
+        <div class="p-body">
+          <h3>Âncora</h3><span class="p-status">em desenvolvimento</span>
+          <p class="p-desc">Aplicação de apoio emocional e autocuidado. O nome vem da ideia central: uma âncora não decide o destino de quem está no mar, apenas impede que a correnteza leve a pessoa para longe.</p>
+          <p class="p-detail"><b>O que tem:</b> check-in emocional, diário de expressão, microações de autocuidado, respiração guiada, rede de apoio e experiência adaptada para crianças, jovens, adultos e idosos. O maior desafio tem sido equilibrar acolhimento, acessibilidade e simplicidade.</p>
+          <div class="tags"><span class="tag">React</span><span class="tag">Vite</span><span class="tag">JavaScript</span><span class="tag">PWA</span><span class="tag">UX</span></div>
+        </div>
+        <span class="p-year">2025–26</span>
+      </article>
+
+      <article class="project">
+        <span class="p-num">02</span>
+        <div class="p-body">
+          <h3>StudyOS</h3><span class="p-status">protótipo · evolução</span>
+          <p class="p-desc">Conceito de um sistema operacional de estudos: tarefas, metas, cronogramas, hábitos e temporizador Pomodoro reunidos em um só lugar.</p>
+          <p class="p-detail"><b>O desafio:</b> condensar várias ferramentas de organização em uma interface simples e agradável. As telas já têm identidade visual própria, e a versão web é desenhada em paralelo à mobile.</p>
+          <div class="tags"><span class="tag">Kotlin</span><span class="tag">Android</span><span class="tag">Web</span><span class="tag">Firebase</span></div>
+        </div>
+        <span class="p-year">2025</span>
+      </article>
+
+      <article class="project">
+        <span class="p-num">03</span>
+        <div class="p-body">
+          <h3>Automação com ESP32</h3><span class="p-status">protótipos</span>
+          <p class="p-desc">Experimentos com sensores e atuadores para automação e monitoramento de luminosidade, presença e temperatura em tempo real.</p>
+          <p class="p-detail"><b>O que aprendi:</b> automação não é só plugar fios, é fazer hardware e software conversarem de forma estável. O protótipo físico funciona e exibe o monitoramento em tela.</p>
+          <div class="tags"><span class="tag">ESP32</span><span class="tag">C/C++</span><span class="tag">Automação</span><span class="tag">IoT</span></div>
+        </div>
+        <span class="p-year">2025</span>
+      </article>
+
+      <article class="project">
+        <span class="p-num">04</span>
+        <div class="p-body">
+          <h3>Study Hub</h3><span class="p-status">conceito · protótipo</span>
+          <p class="p-desc">Proposta de um espaço web para centralizar materiais, avisos e recursos da turma, com navegação em formato de feed e interface responsiva.</p>
+          <p class="p-detail"><b>O problema:</b> os conteúdos da turma estavam espalhados. O hub reúne tudo com uma navegação clara, a página inicial já foi projetada e implementada.</p>
+          <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+        </div>
+        <span class="p-year">2024–25</span>
+      </article>
+    </div>
+  </section>
+
+  <!-- HABILIDADES -->
+  <section id="habilidades">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-num">03</span><h2>Habilidades</h2><span class="sec-note">— arsenal</span></div>
+      <div class="skills-grid">
+        <div>
+          <h3>Linguagens</h3>
+          <ul>
+            <li><b>JavaScript</b> — projetos web e PWA</li>
+            <li><b>Kotlin</b> — Android</li>
+            <li><b>Python</b> — lógica e estudos</li>
+            <li><b>Java</b> — base acadêmica</li>
+            <li><b>C/C++</b> — ESP32 e Arduino</li>
+            <li><b>HTML & CSS</b> — estrutura e estilo</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Tecnologias</h3>
+          <ul>
+            <li><b>Automação</b> — rotinas e dispositivos</li>
+            <li><b>IoT</b> — sensores e atuadores</li>
+            <li><b>Web</b> — React, Vite, responsivo</li>
+            <li><b>Mobile</b> — Android nativo</li>
+            <li><b>Git & GitHub</b> — versionamento</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Como trabalho</h3>
+          <ul>
+            <li>Resolução de problemas com calma</li>
+            <li>Comunicação clara, ensinar é revisar</li>
+            <li>Colaboração e escuta ativa</li>
+            <li>Organização antes da pressa</li>
+            <li>Aprendizagem contínua, sem atalhos</li>
+          </ul>
+        </div>
+      </div>
+      <div class="now">
+        <span class="dot"></span>
+        <p><b>No momento:</b> aprofundando React e UI/UX no projeto Âncora, praticando Kotlin para Android e montando novos circuitos de automação com ESP32. Concluo o técnico em dezembro de 2026.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAJETÓRIA -->
+  <section id="trajetoria">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-num">04</span><h2>Trajetória</h2><span class="sec-note">— origem</span></div>
+      <div class="tl">
+        <div class="tl-item">
+          <time>2024 — 2026</time>
+          <h3>Ensino Médio Técnico em Desenvolvimento de Sistemas</h3>
+          <div class="org">CETI Professor Raldir Cavalcante Bastos · Teresina, PI</div>
+          <p>Formação técnica com foco em programação, desenvolvimento de sistemas e tecnologias digitais. Conclusão prevista para dezembro de 2026.</p>
+        </div>
+        <div class="tl-item">
+          <time>mar 2025 — dez 2025</time>
+          <h3>Monitora Estudantil de Desenvolvimento de Sistemas</h3>
+          <div class="org">Seduc-PI · Teresina, PI</div>
+          <p>Atuei no apoio à aprendizagem de programação, auxiliando estudantes em atividades práticas, resolução de exercícios e reforço de conceitos em tecnologia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato" class="contact">
+    <div class="wrap">
+      <div class="kicker">Contato</div>
+      <h2>Vamos construir algo <span>juntos</span>?</h2>
+      <p>Estou aberta a conexões, aprendizados e oportunidades na área de tecnologia (estágios, projetos colaborativos ou só uma boa conversa sobre código).</p>
+      <div class="contact-links">
+        <a class="btn solid" href="mailto:kristhyneviviane@gmail.com">Enviar e-mail</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/viviane-lima-49445a373/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+      <div class="mail"><b>kristhyneviviane@gmail.com</b></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">© <span id="year"></span> Viviane Lima <b>✦</b> feito à mão com HTML, CSS e JavaScript</div>
+</footer>
+
+<script>
+document.querySelector('#year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
