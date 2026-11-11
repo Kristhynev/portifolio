@@ -7,6 +7,7 @@
 <meta name="description" content="Viviane Lima — estudante de Desenvolvimento de Sistemas, Teresina (PI). Projetos em web, mobile, automação e IoT.">
 <title>Viviane Lima — Portfólio 2026</title>
 <style>
+@font-face{font-family:"Pirata One";src:url("./fonts/PirataOne-Regular.ttf") format("truetype");font-style:normal;font-weight:400;font-display:swap}
 :root{
   --tang:#F05A28;
   --tang-hi:#FF6A38;
@@ -29,10 +30,11 @@ img{display:block}
 .wrap{width:min(1120px,calc(100% - 48px));margin:auto}
 .kicker{color:var(--tang-hi);font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;font-weight:700}
 
-/* halftone texture on dark sections */
-main::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
-  background-image:radial-gradient(#F05A280A 1px,transparent 1.4px);background-size:22px 22px}
-main{position:relative;z-index:1}
+/* ---------- conteúdo editorial ---------- */
+main::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(#1919190F 1px,transparent 1px),linear-gradient(90deg,#1919190F 1px,transparent 1px);background-size:28px 28px}
+main{position:relative;z-index:1;--sand:#191919;--navy:#171717;--bg:#F4F1EA;--bg2:#E9E5DC;--panel:#FFFDF8;
+  --line:#D6D1C6;--muted:#625D56;color:#24211E;background:var(--bg);font-family:Arial,Helvetica,sans-serif}
 
 /* ---------- CAPA (intro) ---------- */
 .cover{position:relative;min-height:100vh;background:linear-gradient(160deg,#16406F 0%,var(--navy) 45%,#081B36 100%);
@@ -55,9 +57,6 @@ main{position:relative;z-index:1}
 .cover-name{font-size:clamp(4rem,13vw,10.5rem);line-height:.9;font-weight:700;text-transform:uppercase;letter-spacing:-.015em;color:var(--sand)}
 .cover-name .outline{color:transparent;-webkit-text-stroke:3px var(--tang)}
 .cover-role{margin-top:22px;font-size:clamp(1rem,2vw,1.45rem);font-weight:700;letter-spacing:.1em;color:var(--tang-hi);text-transform:uppercase}
-.cover-photo{position:absolute;right:min(3vw,40px);bottom:0;height:88vh;z-index:2;
-  filter:drop-shadow(0 0 60px #00000066)}
-.cover-photo img{height:100%;width:auto}
 .cover-socials{position:absolute;z-index:6;left:min(3vw,34px);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:14px}
 .cover-socials a{width:38px;height:38px;display:grid;place-items:center;color:var(--sand);transition:.2s}
 .cover-socials a:hover,.cover-socials a:focus-visible{color:var(--tang-hi);transform:translateX(4px) scale(1.08);outline:none}
@@ -70,7 +69,7 @@ main{position:relative;z-index:1}
 section{padding:96px 0;border-bottom:1px solid var(--line)}
 .sec-head{display:flex;align-items:baseline;gap:22px;margin-bottom:52px}
 .sec-num{font-size:clamp(3rem,7vw,5rem);font-weight:700;color:transparent;-webkit-text-stroke:1.5px var(--tang-hi);line-height:1}
-.sec-head h2{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.sec-head h2{font-family:Arial,Helvetica,sans-serif;font-size:clamp(1.9rem,4.5vw,3rem);font-weight:900;text-transform:uppercase;letter-spacing:-.045em}
 .sec-note{margin-left:auto;color:var(--muted);font-style:italic;font-size:.92rem}
 
 /* ---------- sobre ---------- */
@@ -78,21 +77,30 @@ section{padding:96px 0;border-bottom:1px solid var(--line)}
 .about p{color:var(--muted);margin-bottom:18px}
 .about p strong{color:var(--sand)}
 .facts{margin-top:8px;border-top:2px solid var(--tang-hi);padding-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:16px 28px}
+.facts>div{padding:12px 14px;background:var(--panel);border-left:3px solid var(--tang)}
 .facts dt{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--tang-hi);font-weight:700}
 .facts dd{color:var(--muted);font-size:.92rem;margin-top:2px}
-.about-photo{position:relative;justify-self:center}
-.about-photo .blob{position:absolute;inset:8% -4% -2% -4%;background:radial-gradient(circle,var(--tang) 0%,var(--tang-deep) 78%);
-  border-radius:50%;z-index:0;filter:saturate(.9)}
-.about-photo img{position:relative;z-index:1;height:480px;width:auto;filter:drop-shadow(0 20px 50px #000000aa)}
-.about-photo .tag-photo{position:absolute;z-index:2;left:-14px;bottom:36px;background:var(--tang);color:var(--navy);
-  font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;padding:7px 14px}
+.about-photo{position:relative;justify-self:center;isolation:isolate}
+.about-photo .blob{position:absolute;z-index:0;left:-31%;bottom:12%;width:190%;height:48%;overflow:visible}
+.about-photo .blob img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:fill;filter:none}
+.photo-marquee{position:absolute;z-index:1;top:57%;left:-50%;width:200%;overflow:hidden;transform:rotate(-3deg);pointer-events:none}
+.photo-marquee-track{display:flex;width:max-content;animation:photo-marquee-scroll 13s linear infinite}
+.photo-marquee-track>span{flex:0 0 auto;padding-right:.25em;color:#287cff;font:400 clamp(3rem,5vw,4.8rem)/1 "Pirata One",fantasy;
+  letter-spacing:0;text-transform:uppercase;white-space:nowrap;-webkit-text-stroke:.7px #a8cbff;paint-order:stroke fill;text-shadow:2px 3px 0 #07152d,4px 5px 0 #07152d}
+@keyframes photo-marquee-scroll{to{transform:translateX(-50%)}}
+.about-photo>img{position:relative;z-index:2;height:480px;width:auto;filter:drop-shadow(0 0 2px #0e4fc4) drop-shadow(0 0 4px #0e4fc4) drop-shadow(0 0 6px #0e4fc4) drop-shadow(0 0 8px #0e4fc4) drop-shadow(0 18px 22px #0F2D562E)}
+.about-photo .tag-photo{position:absolute;z-index:3;left:0;bottom:36px;background:#0e4fc4;color:#fff;
+  font:400 1rem/1 "Pirata One",fantasy;letter-spacing:.04em;text-transform:uppercase;padding:9px 16px;
+  transform:rotate(-4deg) skew(-5deg);text-shadow:1px 2px 0 #07152d;box-shadow:3px 4px 0 #07152d;-webkit-text-stroke:.2px #fff}
+@media(prefers-reduced-motion:reduce){.photo-marquee-track{animation:none;transform:translateX(-25%)}}
 
 /* ---------- projetos ---------- */
-.project{display:grid;grid-template-columns:80px 1fr auto;gap:26px;padding:40px 0;border-top:1px solid var(--line);transition:.25s}
+.project{display:grid;grid-template-columns:80px 1fr auto;gap:26px;padding:28px;margin:14px 0;border:1px solid var(--line);border-left:4px solid var(--tang);
+  background:var(--panel);box-shadow:4px 4px 0 #19191914;transition:.25s}
 .project:last-child{border-bottom:1px solid var(--line)}
-.project:hover{background:#F05A2810;padding-left:14px}
+.project:hover{background:#fff;padding-left:34px}
 .p-num{font-size:2rem;font-weight:700;color:transparent;-webkit-text-stroke:1.5px var(--tang-hi);line-height:1;padding-top:4px}
-.p-body h3{font-size:1.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;display:inline-block}
+.p-body h3{font-family:Arial,Helvetica,sans-serif;font-size:1.6rem;font-weight:900;text-transform:uppercase;letter-spacing:-.035em;display:inline-block}
 .p-status{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--tang-hi);border:1px solid #F05A2855;padding:4px 12px;margin-left:14px;vertical-align:middle;white-space:nowrap}
 .p-desc{color:var(--muted);font-size:.96rem;max-width:62ch;margin:12px 0}
 .p-detail{font-size:.87rem;color:var(--muted);border-left:3px solid var(--tang-hi);padding-left:16px;margin-bottom:16px;max-width:62ch}
@@ -102,9 +110,23 @@ section{padding:96px 0;border-bottom:1px solid var(--line)}
 .p-year{color:var(--tang-hi);font-size:.85rem;letter-spacing:.1em;padding-top:10px}
 
 /* ---------- habilidades ---------- */
-.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.skills-grid>div{padding:22px;background:var(--panel);border:1px solid var(--line);box-shadow:4px 4px 0 #19191912}
 .skills-grid h3{font-size:.78rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--tang-hi);padding-bottom:12px;border-bottom:2px solid var(--tang-hi);margin-bottom:14px}
 .skills-grid li{list-style:none;color:var(--muted);font-size:.94rem;padding:8px 0;border-bottom:1px dashed var(--line)}
+.skills-grid .skill-item{display:flex;align-items:center;gap:12px}
+.skill-icon{display:grid;place-items:center;width:34px;height:34px;flex:0 0 34px;border-radius:9px;background:var(--skill-color);color:#fff;font:700 .68rem/1 Arial,sans-serif;letter-spacing:-.04em}
+.skill-icon--javascript{--skill-color:#b89a00;color:#111827}
+.skill-icon--kotlin{--skill-color:#7653c8}
+.skill-icon--python{--skill-color:#3476a8}
+.skill-icon--java{--skill-color:#d65b24}
+.skill-icon--cpp{--skill-color:#1769aa}
+.skill-icon--html{--skill-color:#d64b32}
+.language-logo{display:block;width:36px;height:36px;flex:0 0 36px;object-fit:contain}
+.language-logos{display:flex;align-items:center;gap:2px;flex:0 0 36px}
+.language-logos .language-logo{width:17px;height:34px;flex-basis:17px}
+.skill-copy{display:grid;gap:2px;line-height:1.35}
+.skill-copy>span{font-size:.82rem;color:var(--muted)}
 .skills-grid li b{color:var(--sand);font-weight:700}
 .now{margin-top:56px;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--tang-hi);padding:26px 30px;display:flex;gap:18px;align-items:flex-start}
 .now .dot{width:10px;height:10px;border-radius:50%;background:var(--tang-hi);margin-top:9px;flex-shrink:0;animation:pulse 1.8s infinite}
@@ -122,9 +144,11 @@ section{padding:96px 0;border-bottom:1px solid var(--line)}
 .tl-item p{color:var(--muted);font-size:.93rem;margin-top:10px;max-width:60ch}
 
 /* ---------- contato ---------- */
-.contact{padding:110px 0 90px;text-align:center;border-bottom:none;position:relative;overflow:hidden}
+.contact{padding:110px 0 90px;text-align:center;border-bottom:none;position:relative;overflow:hidden;color:#fff;background:#171717;
+  clip-path:polygon(0 2%,9% 0,19% 2%,31% 0,44% 2%,58% 0,72% 2%,86% 0,100% 2%,100% 98%,88% 100%,74% 98%,59% 100%,44% 98%,29% 100%,13% 98%,0 100%);
+  --muted:#D4D0CA;--navy:#171717}
 .contact::before{content:"";position:absolute;left:50%;top:-220px;transform:translateX(-50%);width:700px;height:440px;background:radial-gradient(ellipse,#F05A2830 0%,transparent 65%);pointer-events:none}
-.contact h2{font-size:clamp(2.4rem,6.5vw,4.6rem);font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:.01em;margin:18px auto 20px;max-width:18ch}
+.contact h2{font-family:Arial,Helvetica,sans-serif;font-size:clamp(2.4rem,6.5vw,4.6rem);font-weight:900;text-transform:uppercase;line-height:1;letter-spacing:-.045em;margin:18px auto 20px;max-width:18ch}
 .contact h2 span{color:var(--tang-hi)}
 .contact p{color:var(--muted);max-width:52ch;margin:0 auto 38px}
 .contact-links{display:flex;justify-content:center;flex-wrap:wrap;gap:14px}
@@ -136,12 +160,11 @@ section{padding:96px 0;border-bottom:1px solid var(--line)}
 .mail{margin-top:30px;font-size:.85rem;letter-spacing:.14em;color:var(--muted)}
 .mail b{color:var(--tang-hi)}
 
-footer{padding:30px 0 44px;text-align:center;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+footer{padding:30px 0 44px;text-align:center;font-family:Arial,Helvetica,sans-serif;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:#D4D0CA;background:#171717}
 footer b{color:var(--tang-hi)}
 
 @media(max-width:860px){
   .cover-links{display:none}
-  .cover-photo{position:relative;right:auto;height:52vh;margin:16px auto -8px}
   .cover-body{flex-direction:column;justify-content:center;text-align:center;padding-top:36px}
   .cover-title{margin-left:0}
   .cover-socials{position:relative;left:auto;top:auto;transform:none;flex-direction:row;justify-content:center;margin-top:24px}
@@ -189,7 +212,6 @@ footer b{color:var(--tang-hi)}
       <h1 class="cover-name">Viviane<br><span class="outline">Lima</span></h1>
       <div class="cover-role">Developer</div>
     </div>
-    <div class="cover-photo"><img src="%BASE_URL%images/foto-1.png" alt="Viviane Lima"></div>
   </div>
 
   <div class="cover-stats">
@@ -220,8 +242,11 @@ footer b{color:var(--tang-hi)}
           </dl>
         </div>
         <div class="about-photo">
-          <div class="blob"></div>
-          <img src="%BASE_URL%images/foto-2.png" alt="Viviane sorrindo com bandana roxa">
+          <div class="blob"><img src="./icons/torn-paper.svg" alt="" aria-hidden="true"></div>
+          <div class="photo-marquee" role="img" aria-label="Viviane Lima">
+            <span class="photo-marquee-track" aria-hidden="true"><span>Viviane Lima ✦ Viviane Lima ✦ </span><span>Viviane Lima ✦ Viviane Lima ✦ </span></span>
+          </div>
+          <img src="./foto-2.png" alt="Viviane sorrindo com bandana roxa">
           <span class="tag-photo">fora do código</span>
         </div>
       </div>
@@ -287,22 +312,22 @@ footer b{color:var(--tang-hi)}
         <div>
           <h3>Linguagens</h3>
           <ul>
-            <li><b>JavaScript</b> — projetos web e PWA</li>
-            <li><b>Kotlin</b> — Android</li>
-            <li><b>Python</b> — lógica e estudos</li>
-            <li><b>Java</b> — base acadêmica</li>
-            <li><b>C/C++</b> — ESP32 e Arduino</li>
-            <li><b>HTML & CSS</b> — estrutura e estilo</li>
+            <li class="skill-item"><img class="language-logo" src="./icons/javascript-original.svg" alt="" aria-hidden="true"><span class="skill-copy"><b>JavaScript</b><span>projetos web e PWA</span></span></li>
+            <li class="skill-item"><img class="language-logo" src="./icons/kotlin-original.svg" alt="" aria-hidden="true"><span class="skill-copy"><b>Kotlin</b><span>Android</span></span></li>
+            <li class="skill-item"><img class="language-logo" src="./icons/python-original.svg" alt="" aria-hidden="true"><span class="skill-copy"><b>Python</b><span>lógica e estudos</span></span></li>
+            <li class="skill-item"><img class="language-logo" src="./icons/java-original.svg" alt="" aria-hidden="true"><span class="skill-copy"><b>Java</b><span>base acadêmica</span></span></li>
+            <li class="skill-item"><img class="language-logo" src="./icons/cplusplus-original.svg" alt="" aria-hidden="true"><span class="skill-copy"><b>C/C++</b><span>ESP32 e Arduino</span></span></li>
+            <li class="skill-item"><span class="language-logos" aria-hidden="true"><img class="language-logo" src="./icons/html5-original.svg" alt=""><img class="language-logo" src="./icons/css3-original.svg" alt=""></span><span class="skill-copy"><b>HTML & CSS</b><span>estrutura e estilo</span></span></li>
           </ul>
         </div>
         <div>
           <h3>Tecnologias</h3>
           <ul>
-            <li><b>Automação</b> — rotinas e dispositivos</li>
-            <li><b>IoT</b> — sensores e atuadores</li>
-            <li><b>Web</b> — React, Vite, responsivo</li>
-            <li><b>Mobile</b> — Android nativo</li>
-            <li><b>Git & GitHub</b> — versionamento</li>
+            <li class="skill-item"><img class="language-logo" src="./icons/arduino-original.svg" alt="" aria-hidden="true"><span class="skill-copy"><b>Automação</b><span>rotinas e dispositivos</span></span></li>
+            <li class="skill-item"><img class="language-logo" src="./icons/iot.svg" alt="" aria-hidden="true"><span class="skill-copy"><b>IoT</b><span>sensores e atuadores</span></span></li>
+            <li class="skill-item"><span class="language-logos" aria-hidden="true"><img class="language-logo" src="./icons/react-original.svg" alt=""><img class="language-logo" src="./icons/vitejs-original.svg" alt=""></span><span class="skill-copy"><b>Web</b><span>React, Vite, responsivo</span></span></li>
+            <li class="skill-item"><img class="language-logo" src="./icons/android-original.svg" alt="" aria-hidden="true"><span class="skill-copy"><b>Mobile</b><span>Android nativo</span></span></li>
+            <li class="skill-item"><span class="language-logos" aria-hidden="true"><img class="language-logo" src="./icons/git-original.svg" alt=""><img class="language-logo" src="./icons/github-original.svg" alt=""></span><span class="skill-copy"><b>Git & GitHub</b><span>versionamento</span></span></li>
           </ul>
         </div>
         <div>
@@ -361,7 +386,7 @@ footer b{color:var(--tang-hi)}
 </main>
 
 <footer>
-  <div class="wrap">© <span id="year"></span> Viviane Lima <b>✦</b> feito à mão com HTML, CSS e JavaScript</div>
+  <div class="wrap">© <span id="year"></span> Viviane Lima</div>
 </footer>
 
 <script>

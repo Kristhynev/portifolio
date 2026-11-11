@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 380" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="black-stock" x1="0" y1="0" x2="0.2" y2="1">
+      <stop offset="0" stop-color="#101012"/>
+      <stop offset=".48" stop-color="#050506"/>
+      <stop offset="1" stop-color="#0b0b0d"/>
+    </linearGradient>
+    <filter id="paper-shadow" x="-10%" y="-20%" width="120%" height="150%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="blur"/>
+      <feOffset dy="7" result="offset"/>
+      <feComponentTransfer in="offset" result="shadow">
+        <feFuncA type="linear" slope=".28"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="torn-edge" x="-5%" y="-18%" width="110%" height="136%">
+      <feTurbulence type="fractalNoise" baseFrequency=".009 .075" numOctaves="3" seed="23" result="fibers"/>
+      <feDisplacementMap in="SourceGraphic" in2="fibers" scale="17" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="black-paper" x="-5%" y="-18%" width="110%" height="136%">
+      <feTurbulence type="fractalNoise" baseFrequency=".012 .09" numOctaves="3" seed="8" result="edge-noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="edge-noise" scale="11" xChannelSelector="R" yChannelSelector="G" result="rough-edge"/>
+      <feTurbulence type="fractalNoise" baseFrequency=".045 .16" numOctaves="3" seed="12" result="paper-grain"/>
+      <feColorMatrix in="paper-grain" type="saturate" values="0" result="gray-grain"/>
+      <feComponentTransfer in="gray-grain" result="subtle-grain">
+        <feFuncA type="table" tableValues="0 .13"/>
+      </feComponentTransfer>
+      <feBlend in="rough-edge" in2="subtle-grain" mode="soft-light"/>
+    </filter>
+    <path id="outer-tear" d="M-30 79
+      C-8 71 4 66 23 73 C39 80 38 60 54 62 C72 64 72 49 87 55 C103 62 104 76 122 67
+      C139 58 145 43 161 51 C178 59 180 77 197 66 C211 57 217 50 231 61 C247 73 253 69 268 53
+      C283 36 291 44 304 57 C317 70 324 75 340 61 C353 49 360 44 374 56 C390 70 397 78 414 64
+      C428 52 434 53 448 68 C463 84 470 79 486 62 C501 46 508 42 522 56 C538 72 545 81 562 67
+      C576 56 583 48 597 59 C612 72 618 82 635 68 C651 55 657 48 671 60 C686 74 692 82 709 69
+      C726 56 731 49 746 62 C760 75 769 83 785 69 C801 55 807 51 822 63 C839 77 846 80 862 67
+      C879 54 885 48 900 60 C915 73 923 80 940 67 C958 54 968 54 984 67 L1027 73
+      L1030 291 C1008 284 994 281 976 289 C959 298 956 314 939 305 C922 296 916 279 900 289
+      C883 299 878 317 861 307 C844 297 840 282 823 292 C805 302 800 319 783 309 C766 299 761 284 744 295
+      C728 306 721 320 704 311 C687 302 683 286 666 297 C648 309 642 324 625 314 C608 304 603 289 586 300
+      C570 311 562 326 545 316 C528 306 524 289 507 301 C490 313 484 328 467 318 C450 308 446 290 429 302
+      C412 314 405 330 388 320 C371 310 367 292 350 304 C333 316 326 330 309 321 C292 312 287 294 270 306
+      C253 318 247 334 230 324 C213 314 210 296 192 307 C175 318 167 330 151 320 C135 310 130 295 112 304
+      C95 313 87 327 70 317 C53 307 49 290 31 298 C14 306 1 302 -27 291 Z"/>
+    <path id="inner-tear" d="M-28 97
+      C-7 89 6 84 25 91 C42 98 42 78 58 80 C76 82 76 67 91 73 C107 80 109 94 127 85
+      C144 76 150 61 166 69 C183 77 185 95 202 84 C216 75 222 68 236 79 C252 91 258 87 273 71
+      C288 54 296 62 309 75 C322 88 329 93 345 79 C358 67 365 62 379 74 C395 88 402 96 419 82
+      C433 70 439 71 453 86 C468 102 475 97 491 80 C506 64 513 60 527 74 C543 90 550 99 567 85
+      C581 74 588 66 602 77 C617 90 623 100 640 86 C656 73 662 66 676 78 C691 92 697 100 714 87
+      C731 74 736 67 751 80 C765 93 774 101 790 87 C806 73 812 69 827 81 C844 95 851 98 867 85
+      C884 72 890 66 905 78 C920 91 928 98 945 85 C963 72 973 72 989 85 L1025 91
+      L1027 272 C1005 265 991 262 973 270 C956 279 953 295 936 286 C919 277 913 260 897 270
+      C880 280 875 298 858 288 C841 278 837 263 820 273 C802 283 797 300 780 290 C763 280 758 265 741 276
+      C725 287 718 301 701 292 C684 283 680 267 663 278 C645 290 639 305 622 295 C605 285 600 270 583 281
+      C567 292 559 307 542 297 C525 287 521 270 504 282 C487 294 481 309 464 299 C447 289 443 271 426 283
+      C409 295 402 311 385 301 C368 291 364 273 347 285 C330 297 323 311 306 302 C289 293 284 275 267 287
+      C250 299 244 315 227 305 C210 295 207 277 189 288 C172 299 164 311 148 301 C132 291 127 276 109 285
+      C92 294 84 308 67 298 C50 288 46 271 28 279 C11 287 -2 283 -29 272 Z"/>
+    <clipPath id="inner-clip">
+      <use href="#inner-tear"/>
+    </clipPath>
+  </defs>
+  <use href="#outer-tear" fill="#ddd7ce" filter="url(#paper-shadow)"/>
+  <use href="#outer-tear" fill="#c9c2b8" filter="url(#torn-edge)"/>
+  <use href="#inner-tear" fill="url(#black-stock)" filter="url(#black-paper)"/>
+  <g clip-path="url(#inner-clip)" opacity=".11">
+    <path d="M-30 125 C150 107 234 144 401 121 S687 100 1020 131 M-20 247 C155 225 292 265 474 241 S790 219 1030 249"
+      fill="none" stroke="#cbc7c0" stroke-width="1.5"/>
+  </g>
+  <use href="#inner-tear" fill="none" stroke="#f3eee6" stroke-opacity=".62" stroke-width="2.5" filter="url(#torn-edge)"/>
+</svg>

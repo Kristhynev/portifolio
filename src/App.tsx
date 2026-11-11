@@ -1,3 +1,20 @@
+import profilePhoto from '../foto-2.png'
+import javascriptLogo from '../icons/javascript-original.svg'
+import kotlinLogo from '../icons/kotlin-original.svg'
+import pythonLogo from '../icons/python-original.svg'
+import javaLogo from '../icons/java-original.svg'
+import cppLogo from '../icons/cplusplus-original.svg'
+import htmlLogo from '../icons/html5-original.svg'
+import cssLogo from '../icons/css3-original.svg'
+import arduinoLogo from '../icons/arduino-original.svg'
+import iotLogo from '../icons/iot.svg'
+import reactLogo from '../icons/react-original.svg'
+import viteLogo from '../icons/vitejs-original.svg'
+import androidLogo from '../icons/android-original.svg'
+import gitLogo from '../icons/git-original.svg'
+import githubLogo from '../icons/github-original.svg'
+import tornPaper from '../icons/torn-paper.svg'
+
 const stats = [
   { value: 'Web', label: 'desenvolvimento' },
   { value: 'Mobile', label: 'aplicações' },
@@ -53,26 +70,40 @@ const projects = [
   },
 ]
 
-const skills = [
+type SkillGroup =
+  | {
+      title: 'Linguagens'
+      items: { name: string; note: string; logo: string | string[] }[]
+    }
+  | {
+      title: 'Tecnologias'
+      items: { name: string; note: string; logo: string | string[] }[]
+    }
+  | {
+      title: 'Como trabalho'
+      items: string[]
+    }
+
+const skills: SkillGroup[] = [
   {
     title: 'Linguagens',
     items: [
-      { name: 'JavaScript', note: 'projetos web e PWA' },
-      { name: 'Kotlin', note: 'Android' },
-      { name: 'Python', note: 'lógica e estudos' },
-      { name: 'Java', note: 'base acadêmica' },
-      { name: 'C/C++', note: 'ESP32 e Arduino' },
-      { name: 'HTML & CSS', note: 'estrutura e estilo' },
+      { name: 'JavaScript', note: 'projetos web e PWA', logo: javascriptLogo },
+      { name: 'Kotlin', note: 'Android', logo: kotlinLogo },
+      { name: 'Python', note: 'lógica e estudos', logo: pythonLogo },
+      { name: 'Java', note: 'base acadêmica', logo: javaLogo },
+      { name: 'C/C++', note: 'ESP32 e Arduino', logo: cppLogo },
+      { name: 'HTML & CSS', note: 'estrutura e estilo', logo: [htmlLogo, cssLogo] },
     ],
   },
   {
     title: 'Tecnologias',
     items: [
-      { name: 'Automação', note: 'rotinas e dispositivos' },
-      { name: 'IoT', note: 'sensores e atuadores' },
-      { name: 'Web', note: 'React, Vite, responsivo' },
-      { name: 'Mobile', note: 'Android nativo' },
-      { name: 'Git & GitHub', note: 'versionamento' },
+      { name: 'Automação', note: 'rotinas e dispositivos', logo: arduinoLogo },
+      { name: 'IoT', note: 'sensores e atuadores', logo: iotLogo },
+      { name: 'Web', note: 'React, Vite, responsivo', logo: [reactLogo, viteLogo] },
+      { name: 'Mobile', note: 'Android nativo', logo: androidLogo },
+      { name: 'Git & GitHub', note: 'versionamento', logo: [gitLogo, githubLogo] },
     ],
   },
   {
@@ -88,7 +119,7 @@ const skills = [
 ]
 
 function SocialIcon({ kind }: { kind: 'instagram' | 'linkedin' | 'mail' }) {
-  const commonProps = { viewBox: '0 0 24 24', 'aria-hidden': 'true' }
+  const commonProps = { viewBox: '0 0 24 24', 'aria-hidden': true }
 
   if (kind === 'instagram') {
     return (
@@ -156,9 +187,6 @@ export default function App() {
             <div className="cover-role">Developer</div>
           </div>
 
-          <div className="cover-photo">
-            <img src={`${import.meta.env.BASE_URL}images/foto-1.png`} alt="Viviane Lima" />
-          </div>
         </div>
 
         <div className="cover-stats">
@@ -213,8 +241,16 @@ export default function App() {
               </div>
 
               <div className="about-photo">
-                <div className="blob" />
-                <img src={`${import.meta.env.BASE_URL}images/foto-2.png`} alt="Viviane sorrindo com bandana roxa" />
+                <div className="blob">
+                  <img src={tornPaper} alt="" aria-hidden="true" />
+                </div>
+                <div className="photo-marquee" role="img" aria-label="Viviane Lima">
+                  <span className="photo-marquee-track" aria-hidden="true">
+                    <span>Viviane Lima ✦ Viviane Lima ✦ </span>
+                    <span>Viviane Lima ✦ Viviane Lima ✦ </span>
+                  </span>
+                </div>
+                <img src={profilePhoto} alt="Viviane sorrindo com bandana roxa" />
                 <span className="tag-photo">fora do código</span>
               </div>
             </div>
@@ -266,13 +302,41 @@ export default function App() {
                 <div key={skillGroup.title}>
                   <h3>{skillGroup.title}</h3>
                   <ul>
-                    {skillGroup.title === 'Como trabalho'
-                      ? skillGroup.items.map((item) => <li key={item}>{item}</li>)
-                      : skillGroup.items.map((item) => (
-                          <li key={item.name}>
-                            <b>{item.name}</b> — {item.note}
+                    {skillGroup.title === 'Como trabalho' ? (
+                      skillGroup.items.map((item) => <li key={item}>{item}</li>)
+                    ) : skillGroup.title === 'Linguagens' ? (
+                      skillGroup.items.map((item) => (
+                        <li className="skill-item" key={item.name}>
+                          {Array.isArray(item.logo) ? (
+                            <span className="language-logos" aria-hidden="true">
+                              {item.logo.map((logo) => <img className="language-logo" src={logo} alt="" key={logo} />)}
+                            </span>
+                          ) : (
+                            <img className="language-logo" src={item.logo} alt="" aria-hidden="true" />
+                          )}
+                          <span className="skill-copy">
+                            <b>{item.name}</b>
+                            <span>{item.note}</span>
+                          </span>
+                        </li>
+                      ))
+                    ) : (
+                      skillGroup.items.map((item) => (
+                          <li className="skill-item" key={item.name}>
+                            {Array.isArray(item.logo) ? (
+                              <span className="language-logos" aria-hidden="true">
+                                {item.logo.map((logo) => <img className="language-logo" src={logo} alt="" key={logo} />)}
+                              </span>
+                            ) : (
+                              <img className="language-logo" src={item.logo} alt="" aria-hidden="true" />
+                            )}
+                            <span className="skill-copy">
+                              <b>{item.name}</b>
+                              <span>{item.note}</span>
+                            </span>
                           </li>
-                        ))}
+                        ))
+                    )}
                   </ul>
                 </div>
               ))}
@@ -336,7 +400,7 @@ export default function App() {
 
       <footer>
         <div className="wrap">
-          © {year} Viviane Lima <b>✦</b> feito à mão com HTML, CSS e JavaScript
+          © {year} Viviane Lima
         </div>
       </footer>
     </>
